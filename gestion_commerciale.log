@@ -1,0 +1,1172 @@
+2025-07-20 21:01:10.464 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:01:10.836 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-20 21:01:10.858 [main] WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata
+org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [org.hibernate.community.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:154)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:236)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:189)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.constructDialect(DialectFactoryImpl.java:122)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$1.execute(JdbcEnvironmentInitiator.java:324)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$1.execute(JdbcEnvironmentInitiator.java:274)
+	at org.hibernate.jdbc.WorkExecutor.executeReturningWork(WorkExecutor.java:58)
+	at org.hibernate.jdbc.AbstractReturningWork.accept(AbstractReturningWork.java:34)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:70)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:273)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:105)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:129)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:169)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:55)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [org.hibernate.community.dialect.SQLiteDialect]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:126)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:150)
+	... 27 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Could not load requested class : org.hibernate.community.dialect.SQLiteDialect
+	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:216)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:595)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:578)
+	at java.base/java.lang.Class.forName(Class.java:557)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:123)
+	... 28 common frames omitted
+Caused by: java.lang.Throwable: null
+	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:209)
+	... 34 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 34 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 34 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 34 common frames omitted
+2025-07-20 21:01:10.861 [main] ERROR c.g.config.DatabaseConfig - Error initializing JPA
+org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to resolve name [org.hibernate.community.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:169)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:55)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [org.hibernate.community.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:154)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:236)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:189)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.constructDialect(DialectFactoryImpl.java:122)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentWithDefaults(JdbcEnvironmentInitiator.java:141)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:344)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:105)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:129)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	... 13 common frames omitted
+Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [org.hibernate.community.dialect.SQLiteDialect]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:126)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:150)
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Could not load requested class : org.hibernate.community.dialect.SQLiteDialect
+	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:216)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:595)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:578)
+	at java.base/java.lang.Class.forName(Class.java:557)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:123)
+	... 24 common frames omitted
+Caused by: java.lang.Throwable: null
+	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:209)
+	... 30 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 30 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 30 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 30 common frames omitted
+2025-07-20 21:01:10.861 [main] ERROR c.g.config.DatabaseConfig - Error initializing database
+java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to resolve name [org.hibernate.community.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:169)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:55)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [org.hibernate.community.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:154)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:236)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:189)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.constructDialect(DialectFactoryImpl.java:122)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentWithDefaults(JdbcEnvironmentInitiator.java:141)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:344)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:105)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:129)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	... 13 common frames omitted
+Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [org.hibernate.community.dialect.SQLiteDialect]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:126)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:150)
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Could not load requested class : org.hibernate.community.dialect.SQLiteDialect
+	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:216)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:595)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:578)
+	at java.base/java.lang.Class.forName(Class.java:557)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:123)
+	... 24 common frames omitted
+Caused by: java.lang.Throwable: null
+	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:209)
+	... 30 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 30 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 30 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 30 common frames omitted
+2025-07-20 21:01:10.862 [main] ERROR c.g.GestionCommercialeApp - Fatal error during application startup
+java.lang.RuntimeException: Failed to initialize database
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:40)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	... 1 common frames omitted
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment] due to: Unable to resolve name [org.hibernate.community.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:276)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:169)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:55)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: org.hibernate.boot.registry.selector.spi.StrategySelectionException: Unable to resolve name [org.hibernate.community.dialect.SQLiteDialect] as strategy [org.hibernate.dialect.Dialect]
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:154)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:236)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.resolveStrategy(StrategySelectorImpl.java:189)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.constructDialect(DialectFactoryImpl.java:122)
+	at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.buildDialect(DialectFactoryImpl.java:87)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentWithDefaults(JdbcEnvironmentInitiator.java:141)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:344)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:105)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:129)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	... 13 common frames omitted
+Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [org.hibernate.community.dialect.SQLiteDialect]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:126)
+	at org.hibernate.boot.registry.selector.internal.StrategySelectorImpl.selectStrategyImplementor(StrategySelectorImpl.java:150)
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Could not load requested class : org.hibernate.community.dialect.SQLiteDialect
+	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:216)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:595)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:578)
+	at java.base/java.lang.Class.forName(Class.java:557)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:123)
+	... 24 common frames omitted
+Caused by: java.lang.Throwable: null
+	at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:209)
+	... 30 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 30 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 30 common frames omitted
+	Suppressed: java.lang.ClassNotFoundException: org.hibernate.community.dialect.SQLiteDialect
+		at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+		at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+		at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+		at org.hibernate.boot.registry.classloading.internal.AggregatedClassLoader.findClass(AggregatedClassLoader.java:206)
+		... 30 common frames omitted
+2025-07-20 21:03:39.970 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:03:40.472 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-20 21:03:41.895 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-20 21:03:41.901 [main] INFO  c.g.service.DatabaseInitService - Database initialized with sample data successfully
+2025-07-20 21:03:41.902 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-20 21:03:44.692 [AWT-EventQueue-0] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-20 21:03:44.692 [AWT-EventQueue-0] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-20 21:03:44.698 [AWT-EventQueue-0] ERROR c.g.service.AuthService - Error initializing default user
+org.hibernate.exception.GenericJDBCException: Unable to extract generated-keys ResultSet [not implemented by SQLite JDBC driver] [insert into users (active,created_at,email,last_login,login,nom,password,prenom,role,telephone) values (?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:139)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:171)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:112)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2860)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:290)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:271)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:321)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:766)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:750)
+	at com.gestioncommerciale.service.AuthService.initializeDefaultUser(AuthService.java:140)
+	at com.gestioncommerciale.view.LoginFrame.<init>(LoginFrame.java:30)
+	at com.gestioncommerciale.GestionCommercialeApp.lambda$0(GestionCommercialeApp.java:62)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: java.sql.SQLFeatureNotSupportedException: not implemented by SQLite JDBC driver
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.unsupported(JDBC3PreparedStatement.java:448)
+	at org.sqlite.jdbc3.JDBC3Statement.getGeneratedKeys(JDBC3Statement.java:361)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:110)
+	... 36 common frames omitted
+2025-07-20 21:04:19.342 [SwingWorker-pool-2-thread-1] WARN  c.g.service.AuthService - User not found: admin
+2025-07-20 21:04:32.714 [SwingWorker-pool-2-thread-2] WARN  c.g.service.AuthService - User not found: admin
+2025-07-20 21:04:37.243 [SwingWorker-pool-2-thread-3] WARN  c.g.service.AuthService - User not found: admin
+2025-07-20 21:11:38.693 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:11:38.761 [main] ERROR c.g.config.DatabaseConfig - Error initializing JPA
+jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:11:38.763 [main] ERROR c.g.config.DatabaseConfig - Error initializing database
+java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:11:38.763 [main] ERROR c.g.GestionCommercialeApp - Fatal error during application startup
+java.lang.RuntimeException: Failed to initialize database
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:40)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	... 1 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:11:52.424 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:11:52.506 [main] ERROR c.g.config.DatabaseConfig - Error initializing JPA
+jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:11:52.507 [main] ERROR c.g.config.DatabaseConfig - Error initializing database
+java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:11:52.507 [main] ERROR c.g.GestionCommercialeApp - Fatal error during application startup
+java.lang.RuntimeException: Failed to initialize database
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:40)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	... 1 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:12:13.303 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:12:13.375 [main] ERROR c.g.config.DatabaseConfig - Error initializing JPA
+jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:12:13.376 [main] ERROR c.g.config.DatabaseConfig - Error initializing database
+java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:12:13.376 [main] ERROR c.g.GestionCommercialeApp - Fatal error during application startup
+java.lang.RuntimeException: Failed to initialize database
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:40)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	... 1 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:15:33.982 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:15:34.058 [main] ERROR c.g.config.DatabaseConfig - Error initializing JPA
+jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:15:34.059 [main] ERROR c.g.config.DatabaseConfig - Error initializing database
+java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:15:34.060 [main] ERROR c.g.GestionCommercialeApp - Fatal error during application startup
+java.lang.RuntimeException: Failed to initialize database
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:40)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	... 1 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:18:29.785 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:18:29.856 [main] ERROR c.g.config.DatabaseConfig - Error initializing JPA
+jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:18:29.857 [main] ERROR c.g.config.DatabaseConfig - Error initializing database
+java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:18:29.857 [main] ERROR c.g.GestionCommercialeApp - Fatal error during application startup
+java.lang.RuntimeException: Failed to initialize database
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:40)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: java.lang.RuntimeException: Failed to initialize JPA
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:32)
+	... 1 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unable to locate persistence units
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:83)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:59)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:50)
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80)
+	at com.gestioncommerciale.config.DatabaseConfig.initializeJPA(DatabaseConfig.java:71)
+	... 2 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Unexpected error parsing [file:/C:/Users/hamza/OneDrive/Desktop/java%20project/GestionCommerciale/target/classes/META-INF/persistence.xml]
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:479)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:246)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.parsePersistenceXml(PersistenceXmlParser.java:237)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.doResolve(PersistenceXmlParser.java:231)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.locatePersistenceUnits(PersistenceXmlParser.java:69)
+	at org.hibernate.jpa.HibernatePersistenceProvider.getEntityManagerFactoryBuilderOrNull(HibernatePersistenceProvider.java:79)
+	... 6 common frames omitted
+Caused by: org.xml.sax.SAXParseException: XML version "        <properties>
+            <property name=" is not supported, only XML 1.0 is supported.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.hibernate.jpa.boot.internal.PersistenceXmlParser.loadUrl(PersistenceXmlParser.java:474)
+	... 11 common frames omitted
+2025-07-20 21:20:09.567 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:20:09.968 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-20 21:20:11.219 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-20 21:20:11.223 [main] INFO  c.g.service.DatabaseInitService - Database initialized with sample data successfully
+2025-07-20 21:20:11.658 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-20 21:20:11.658 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-20 21:20:11.664 [main] ERROR c.g.service.AuthService - Error initializing default user
+org.hibernate.exception.GenericJDBCException: Unable to extract generated-keys ResultSet [not implemented by SQLite JDBC driver] [insert into users (active,created_at,email,last_login,login,nom,password,prenom,role,telephone) values (?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:139)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:171)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:112)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2860)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:290)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:271)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:321)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:766)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:750)
+	at com.gestioncommerciale.service.AuthService.initializeDefaultUser(AuthService.java:147)
+	at com.gestioncommerciale.service.DatabaseInitService.ensureDefaultAdminUser(DatabaseInitService.java:105)
+	at com.gestioncommerciale.service.DatabaseInitService.initializeSampleData(DatabaseInitService.java:34)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:35)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: java.sql.SQLFeatureNotSupportedException: not implemented by SQLite JDBC driver
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.unsupported(JDBC3PreparedStatement.java:448)
+	at org.sqlite.jdbc3.JDBC3Statement.getGeneratedKeys(JDBC3Statement.java:361)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:110)
+	... 25 common frames omitted
+2025-07-20 21:20:11.666 [main] INFO  c.g.service.DatabaseInitService - Default admin user ensured
+2025-07-20 21:20:11.666 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-20 21:20:13.992 [AWT-EventQueue-0] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-20 21:20:13.992 [AWT-EventQueue-0] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-20 21:20:13.992 [AWT-EventQueue-0] ERROR c.g.service.AuthService - Error initializing default user
+org.hibernate.exception.GenericJDBCException: Unable to extract generated-keys ResultSet [not implemented by SQLite JDBC driver] [insert into users (active,created_at,email,last_login,login,nom,password,prenom,role,telephone) values (?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:139)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:171)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:112)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2860)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:290)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:271)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:321)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:766)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:750)
+	at com.gestioncommerciale.service.AuthService.initializeDefaultUser(AuthService.java:147)
+	at com.gestioncommerciale.view.LoginFrame.<init>(LoginFrame.java:30)
+	at com.gestioncommerciale.GestionCommercialeApp.lambda$main$0(GestionCommercialeApp.java:62)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: java.sql.SQLFeatureNotSupportedException: not implemented by SQLite JDBC driver
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.unsupported(JDBC3PreparedStatement.java:448)
+	at org.sqlite.jdbc3.JDBC3Statement.getGeneratedKeys(JDBC3Statement.java:361)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:110)
+	... 36 common frames omitted
+2025-07-20 21:20:15.672 [SwingWorker-pool-2-thread-1] WARN  c.g.service.AuthService - User not found: admin
+2025-07-20 21:20:28.935 [SwingWorker-pool-2-thread-2] WARN  c.g.service.AuthService - User not found: admin
+2025-07-20 21:23:46.243 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:23:46.627 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-20 21:23:47.821 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-20 21:23:47.824 [main] INFO  c.g.service.DatabaseInitService - Database initialized with sample data successfully
+2025-07-20 21:23:47.824 [main] INFO  c.g.service.AuthService - Checking for admin user...
+2025-07-20 21:23:48.193 [main] INFO  c.g.service.AuthService - Found 0 admin users
+2025-07-20 21:23:48.193 [main] INFO  c.g.service.AuthService - No admin user found, creating default admin user...
+2025-07-20 21:23:48.230 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-20 21:23:48.230 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-20 21:23:48.238 [main] ERROR c.g.service.AuthService - Error initializing default user
+org.hibernate.exception.GenericJDBCException: Unable to extract generated-keys ResultSet [not implemented by SQLite JDBC driver] [insert into users (active,created_at,email,last_login,login,nom,password,prenom,role,telephone) values (?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:139)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:171)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:112)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2860)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:290)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:271)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:321)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:766)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:750)
+	at com.gestioncommerciale.service.AuthService.initializeDefaultUser(AuthService.java:153)
+	at com.gestioncommerciale.service.DatabaseInitService.ensureDefaultAdminUser(DatabaseInitService.java:105)
+	at com.gestioncommerciale.service.DatabaseInitService.initializeSampleData(DatabaseInitService.java:34)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:35)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: java.sql.SQLFeatureNotSupportedException: not implemented by SQLite JDBC driver
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.unsupported(JDBC3PreparedStatement.java:448)
+	at org.sqlite.jdbc3.JDBC3Statement.getGeneratedKeys(JDBC3Statement.java:361)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:110)
+	... 25 common frames omitted
+2025-07-20 21:23:48.240 [main] INFO  c.g.service.DatabaseInitService - Default admin user ensured
+2025-07-20 21:23:48.241 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-20 21:23:48.241 [main] INFO  c.g.service.AuthService - Checking for admin user...
+2025-07-20 21:23:48.242 [main] INFO  c.g.service.AuthService - Found 0 admin users
+2025-07-20 21:23:48.242 [main] INFO  c.g.service.AuthService - No admin user found, creating default admin user...
+2025-07-20 21:23:48.244 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-20 21:23:48.244 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-20 21:23:48.244 [main] ERROR c.g.service.AuthService - Error initializing default user
+org.hibernate.exception.GenericJDBCException: Unable to extract generated-keys ResultSet [not implemented by SQLite JDBC driver] [insert into users (active,created_at,email,last_login,login,nom,password,prenom,role,telephone) values (?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:139)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:171)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:112)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2860)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:290)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:271)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:321)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:766)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:750)
+	at com.gestioncommerciale.service.AuthService.initializeDefaultUser(AuthService.java:153)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:56)
+Caused by: java.sql.SQLFeatureNotSupportedException: not implemented by SQLite JDBC driver
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.unsupported(JDBC3PreparedStatement.java:448)
+	at org.sqlite.jdbc3.JDBC3Statement.getGeneratedKeys(JDBC3Statement.java:361)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:110)
+	... 22 common frames omitted
+2025-07-20 21:23:48.257 [main] INFO  c.g.service.AuthService - === All users in database ===
+2025-07-20 21:23:48.258 [main] INFO  c.g.service.AuthService - Total users: 0
+2025-07-20 21:23:48.258 [main] INFO  c.g.service.AuthService - === End user list ===
+2025-07-20 21:23:50.566 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Checking for admin user...
+2025-07-20 21:23:50.567 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Found 0 admin users
+2025-07-20 21:23:50.567 [AWT-EventQueue-0] INFO  c.g.service.AuthService - No admin user found, creating default admin user...
+2025-07-20 21:23:50.569 [AWT-EventQueue-0] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-20 21:23:50.569 [AWT-EventQueue-0] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-20 21:23:50.570 [AWT-EventQueue-0] ERROR c.g.service.AuthService - Error initializing default user
+org.hibernate.exception.GenericJDBCException: Unable to extract generated-keys ResultSet [not implemented by SQLite JDBC driver] [insert into users (active,created_at,email,last_login,login,nom,password,prenom,role,telephone) values (?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:139)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:171)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:112)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2860)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:290)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:271)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:321)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:766)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:750)
+	at com.gestioncommerciale.service.AuthService.initializeDefaultUser(AuthService.java:153)
+	at com.gestioncommerciale.view.LoginFrame.<init>(LoginFrame.java:30)
+	at com.gestioncommerciale.GestionCommercialeApp.lambda$main$0(GestionCommercialeApp.java:68)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: java.sql.SQLFeatureNotSupportedException: not implemented by SQLite JDBC driver
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.unsupported(JDBC3PreparedStatement.java:448)
+	at org.sqlite.jdbc3.JDBC3Statement.getGeneratedKeys(JDBC3Statement.java:361)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:110)
+	... 36 common frames omitted
+2025-07-20 21:23:52.116 [SwingWorker-pool-2-thread-1] WARN  c.g.service.AuthService - User not found: admin
+2025-07-20 21:24:03.456 [SwingWorker-pool-2-thread-2] WARN  c.g.service.AuthService - User not found: admin
+2025-07-20 21:26:41.437 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:26:41.910 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-20 21:26:43.228 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-20 21:26:43.231 [main] INFO  c.g.service.DatabaseInitService - Database initialized with sample data successfully
+2025-07-20 21:26:43.232 [main] INFO  c.g.service.AuthService - Checking for admin user...
+2025-07-20 21:26:43.590 [main] INFO  c.g.service.AuthService - Found 0 admin users
+2025-07-20 21:26:43.591 [main] INFO  c.g.service.AuthService - No admin user found, creating default admin user...
+2025-07-20 21:26:43.627 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-20 21:26:43.627 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-20 21:26:43.631 [main] ERROR c.g.service.AuthService - Error initializing default user
+org.hibernate.exception.GenericJDBCException: Unable to extract generated-keys ResultSet [not implemented by SQLite JDBC driver] [insert into users (active,created_at,email,last_login,login,nom,password,prenom,role,telephone) values (?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:139)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:171)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:112)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2860)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:290)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:271)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:321)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:766)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:750)
+	at com.gestioncommerciale.service.AuthService.initializeDefaultUser(AuthService.java:153)
+	at com.gestioncommerciale.service.DatabaseInitService.ensureDefaultAdminUser(DatabaseInitService.java:105)
+	at com.gestioncommerciale.service.DatabaseInitService.initializeSampleData(DatabaseInitService.java:34)
+	at com.gestioncommerciale.config.DatabaseConfig.initialize(DatabaseConfig.java:35)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:53)
+Caused by: java.sql.SQLFeatureNotSupportedException: not implemented by SQLite JDBC driver
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.unsupported(JDBC3PreparedStatement.java:448)
+	at org.sqlite.jdbc3.JDBC3Statement.getGeneratedKeys(JDBC3Statement.java:361)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:110)
+	... 25 common frames omitted
+2025-07-20 21:26:43.633 [main] INFO  c.g.service.DatabaseInitService - Default admin user ensured
+2025-07-20 21:26:43.634 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-20 21:26:43.634 [main] INFO  c.g.service.AuthService - Checking for admin user...
+2025-07-20 21:26:43.635 [main] INFO  c.g.service.AuthService - Found 0 admin users
+2025-07-20 21:26:43.636 [main] INFO  c.g.service.AuthService - No admin user found, creating default admin user...
+2025-07-20 21:26:43.638 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-20 21:26:43.638 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-20 21:26:43.638 [main] ERROR c.g.service.AuthService - Error initializing default user
+org.hibernate.exception.GenericJDBCException: Unable to extract generated-keys ResultSet [not implemented by SQLite JDBC driver] [insert into users (active,created_at,email,last_login,login,nom,password,prenom,role,telephone) values (?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:139)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:171)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:112)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2860)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:290)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:271)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:321)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:766)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:750)
+	at com.gestioncommerciale.service.AuthService.initializeDefaultUser(AuthService.java:153)
+	at com.gestioncommerciale.GestionCommercialeApp.main(GestionCommercialeApp.java:56)
+Caused by: java.sql.SQLFeatureNotSupportedException: not implemented by SQLite JDBC driver
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.unsupported(JDBC3PreparedStatement.java:448)
+	at org.sqlite.jdbc3.JDBC3Statement.getGeneratedKeys(JDBC3Statement.java:361)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:110)
+	... 22 common frames omitted
+2025-07-20 21:26:43.651 [main] INFO  c.g.service.AuthService - === All users in database ===
+2025-07-20 21:26:43.651 [main] INFO  c.g.service.AuthService - Total users: 0
+2025-07-20 21:26:43.651 [main] INFO  c.g.service.AuthService - === End user list ===
+2025-07-20 21:26:45.964 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Checking for admin user...
+2025-07-20 21:26:45.965 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Found 0 admin users
+2025-07-20 21:26:45.965 [AWT-EventQueue-0] INFO  c.g.service.AuthService - No admin user found, creating default admin user...
+2025-07-20 21:26:45.967 [AWT-EventQueue-0] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-20 21:26:45.967 [AWT-EventQueue-0] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-20 21:26:45.968 [AWT-EventQueue-0] ERROR c.g.service.AuthService - Error initializing default user
+org.hibernate.exception.GenericJDBCException: Unable to extract generated-keys ResultSet [not implemented by SQLite JDBC driver] [insert into users (active,created_at,email,last_login,login,nom,password,prenom,role,telephone) values (?,?,?,?,?,?,?,?,?,?)]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:63)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:139)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:171)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:112)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2860)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:290)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:271)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:321)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:386)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:300)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:219)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:134)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:766)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:750)
+	at com.gestioncommerciale.service.AuthService.initializeDefaultUser(AuthService.java:153)
+	at com.gestioncommerciale.view.LoginFrame.<init>(LoginFrame.java:30)
+	at com.gestioncommerciale.GestionCommercialeApp.lambda$main$0(GestionCommercialeApp.java:68)
+	at java.desktop/java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:318)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:773)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+Caused by: java.sql.SQLFeatureNotSupportedException: not implemented by SQLite JDBC driver
+	at org.sqlite.jdbc3.JDBC3PreparedStatement.unsupported(JDBC3PreparedStatement.java:448)
+	at org.sqlite.jdbc3.JDBC3Statement.getGeneratedKeys(JDBC3Statement.java:361)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:110)
+	... 36 common frames omitted
+2025-07-20 21:26:47.211 [SwingWorker-pool-2-thread-1] WARN  c.g.service.AuthService - User not found: admin
+2025-07-20 21:26:52.118 [SwingWorker-pool-2-thread-2] WARN  c.g.service.AuthService - User not found: admin
+2025-07-20 21:26:57.749 [SwingWorker-pool-2-thread-3] WARN  c.g.service.AuthService - User not found: admin
+2025-07-20 21:34:52.381 [main] INFO  c.g.config.DatabaseConfig - Users table created/verified
+2025-07-20 21:34:52.385 [main] INFO  c.g.config.DatabaseConfig - Creating admin user via SQL...
+2025-07-20 21:34:52.390 [main] INFO  c.g.config.DatabaseConfig - ✓ Admin user created via SQL
+2025-07-20 21:34:52.391 [main] INFO  c.g.config.DatabaseConfig - ✓ Admin user verified: admin with role ADMIN
+2025-07-20 21:34:52.392 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:34:52.805 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-20 21:34:54.180 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-20 21:34:54.181 [main] INFO  c.g.service.DatabaseInitService - Database already initialized with sample data
+2025-07-20 21:34:54.182 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-20 21:34:54.182 [main] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-20 21:34:54.583 [main] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-20 21:34:54.615 [main] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-20 21:34:56.926 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-20 21:34:56.927 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-20 21:34:56.928 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-20 21:35:00.261 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - === Authentication attempt ===
+2025-07-20 21:35:00.262 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Login: 'admin'
+2025-07-20 21:35:00.262 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Password length: 8
+2025-07-20 21:35:00.263 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Users found with login 'admin': 1
+2025-07-20 21:35:00.266 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
+2025-07-20 21:35:00.300 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
+2025-07-20 21:35:09.089 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin
+2025-07-20 21:36:12.254 [main] INFO  c.g.config.DatabaseConfig - Users table created/verified
+2025-07-20 21:36:12.260 [main] INFO  c.g.config.DatabaseConfig - Admin user already exists (count: 1)
+2025-07-20 21:36:12.262 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 21:36:12.717 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-20 21:36:14.254 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-20 21:36:14.256 [main] INFO  c.g.service.DatabaseInitService - Database already initialized with sample data
+2025-07-20 21:36:14.256 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-20 21:36:14.257 [main] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-20 21:36:14.635 [main] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-20 21:36:14.659 [main] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-20 21:36:16.958 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-20 21:36:16.960 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-20 21:36:16.961 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-20 21:36:19.588 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - === Authentication attempt ===
+2025-07-20 21:36:19.588 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Login: 'admin'
+2025-07-20 21:36:19.588 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Password length: 8
+2025-07-20 21:36:19.589 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Users found with login 'admin': 1
+2025-07-20 21:36:19.590 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
+2025-07-20 21:36:19.628 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
+2025-07-20 21:36:38.000 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin
+2025-07-20 21:36:38.051 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-20 21:36:38.053 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-20 21:36:38.055 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-20 23:00:53.402 [main] INFO  c.g.config.DatabaseConfig - Users table created/verified
+2025-07-20 23:00:53.408 [main] INFO  c.g.config.DatabaseConfig - Admin user already exists (count: 1)
+2025-07-20 23:00:53.411 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-20 23:00:53.884 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-20 23:00:55.113 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-20 23:00:55.115 [main] INFO  c.g.service.DatabaseInitService - Database already initialized with sample data
+2025-07-20 23:00:55.115 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-20 23:00:55.116 [main] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-20 23:00:55.504 [main] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-20 23:00:55.528 [main] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-20 23:00:57.837 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-20 23:00:57.839 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-20 23:00:57.840 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-20 23:00:59.364 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - === Authentication attempt ===
+2025-07-20 23:00:59.364 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Login: 'admin'
+2025-07-20 23:00:59.364 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Password length: 8
+2025-07-20 23:00:59.365 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Users found with login 'admin': 1
+2025-07-20 23:00:59.367 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
+2025-07-20 23:00:59.410 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
+2025-07-20 23:15:29.294 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin
+2025-07-28 14:07:13.752 [main] INFO  c.g.config.DatabaseConfig - Users table created/verified
+2025-07-28 14:07:13.761 [main] INFO  c.g.config.DatabaseConfig - Admin user already exists (count: 1)
+2025-07-28 14:07:13.764 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-28 14:07:14.495 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-28 14:07:16.341 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-28 14:07:16.343 [main] INFO  c.g.service.DatabaseInitService - Database already initialized with sample data
+2025-07-28 14:07:16.344 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-28 14:07:16.345 [main] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-28 14:07:16.817 [main] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-28 14:07:16.853 [main] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-28 14:07:19.566 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-28 14:07:19.568 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-28 14:07:19.570 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-28 14:07:21.088 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - === Authentication attempt ===
+2025-07-28 14:07:21.089 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Login: 'admin'
+2025-07-28 14:07:21.089 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Password length: 8
+2025-07-28 14:07:21.090 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Users found with login 'admin': 1
+2025-07-28 14:07:21.092 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
+2025-07-28 14:07:21.128 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
+2025-07-28 14:07:23.641 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin

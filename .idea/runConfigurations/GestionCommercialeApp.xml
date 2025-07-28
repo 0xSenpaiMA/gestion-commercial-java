@@ -1,0 +1,14 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="GestionCommercialeApp" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+    <option name="MAIN_CLASS_NAME" value="com.gestioncommerciale.GestionCommercialeApp" />
+    <module name="gestion-commerciale" />
+    <option name="PROGRAM_PARAMETERS" />
+    <option name="VM_PARAMETERS" value="-Dfile.encoding=UTF-8" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
