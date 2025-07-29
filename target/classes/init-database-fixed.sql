@@ -165,5 +165,50 @@ VALUES
 (2, 2, 2.0, 500.00, 0.0, 1000.00, 'Consultation technique - 2 heures'),
 (2, 5, 1.0, 1500.00, 25.0, 1125.00, 'Formation équipe - 1 jour (remise 25%)');
 
+-- Bons de livraison table
+CREATE TABLE IF NOT EXISTS bons_livraison (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    numero VARCHAR(255) UNIQUE NOT NULL,
+    client_id INTEGER NOT NULL,
+    devis_id INTEGER,
+    date_creation TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_livraison TIMESTAMP,
+    adresse_livraison TEXT,
+    observations TEXT,
+    transporteur VARCHAR(255),
+    mode_livraison VARCHAR(255),
+    statut VARCHAR(255) NOT NULL DEFAULT 'EN_PREPARATION' CHECK (statut IN ('EN_PREPARATION', 'PRET', 'EXPEDIEE', 'LIVREE', 'PARTIELLEMENT_LIVREE', 'ANNULEE')),
+    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE,
+    FOREIGN KEY (devis_id) REFERENCES devis(id) ON DELETE SET NULL
+);
+
+-- Lignes de livraison table
+CREATE TABLE IF NOT EXISTS lignes_livraison (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    bon_livraison_id INTEGER NOT NULL,
+    article_id INTEGER NOT NULL,
+    quantite_demandee DECIMAL(10,3) NOT NULL DEFAULT 1.0,
+    quantite_livree DECIMAL(10,3) DEFAULT 0.0,
+    emplacement VARCHAR(255),
+    numero_serie VARCHAR(255),
+    description TEXT,
+    FOREIGN KEY (bon_livraison_id) REFERENCES bons_livraison(id) ON DELETE CASCADE,
+    FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE RESTRICT
+);
+
+-- Sample bons de livraison
+INSERT OR IGNORE INTO bons_livraison (id, numero, client_id, devis_id, date_creation, date_livraison, adresse_livraison, observations, transporteur, mode_livraison, statut) 
+VALUES 
+(1, 'BL202501001', 1, 1, '2025-01-16 09:00:00', '2025-01-16', '456 Avenue Client, Rabat', 'Livraison urgente demandée', 'Transport Express', 'Standard', 'LIVREE'),
+(2, 'BL202501002', 3, NULL, '2025-01-21 10:30:00', NULL, NULL, 'Commande en préparation', NULL, 'Retrait magasin', 'EN_PREPARATION');
+
+-- Sample lignes de livraison
+INSERT OR IGNORE INTO lignes_livraison (bon_livraison_id, article_id, quantite_demandee, quantite_livree, emplacement, numero_serie, description) 
+VALUES 
+(1, 4, 1.0, 1.0, 'Magasin-A12', 'SN2025001', 'Ordinateur portable professionnel livré'),
+(1, 1, 1.0, 1.0, 'Magasin-B5', NULL, 'Accessoires livrés avec l\'ordinateur'),
+(2, 2, 2.0, 0.0, NULL, NULL, 'Consultation en attente de planification'),
+(2, 5, 1.0, 0.0, 'Salle formation', NULL, 'Formation programmée pour la semaine prochaine');
+
 -- Enable foreign keys
 PRAGMA foreign_keys = ON;

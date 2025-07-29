@@ -268,9 +268,9 @@ public class MainFrame extends JFrame {
     }
     
     private void showDeliveryNoteManagement() {
-        // TODO: Implement delivery note management
         updateStatus("Gestion des bons de livraison");
-        UIUtils.showSuccessMessage(this, "Gestion des bons de livraison à implémenter");
+        BonLivraisonManagementFrame bonLivraisonFrame = new BonLivraisonManagementFrame();
+        bonLivraisonFrame.setVisible(true);
     }
     
     private void showInvoiceManagement() {
