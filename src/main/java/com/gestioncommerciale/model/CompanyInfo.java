@@ -15,6 +15,7 @@ import jakarta.persistence.Table;
 public class CompanyInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     
     @Column(name = "raison_sociale", nullable = false)

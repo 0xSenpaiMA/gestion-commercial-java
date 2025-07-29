@@ -213,9 +213,13 @@ public class MainFrame extends JFrame {
     }
     
     private void showCompanyInfoForm() {
-        // TODO: Implement company info form
-        updateStatus("Informations entreprise");
-        UIUtils.showSuccessMessage(this, "Formulaire d'informations entreprise à implémenter");
+        try {
+            CompanyInfoManagementFrame companyFrame = new CompanyInfoManagementFrame();
+            companyFrame.setVisible(true);
+            updateStatus("Informations entreprise");
+        } catch (Exception e) {
+            UIUtils.showErrorMessage(this, "Erreur lors de l'ouverture du formulaire d'entreprise: " + e.getMessage());
+        }
     }
     
     private void showUserManagement() {
@@ -223,21 +227,33 @@ public class MainFrame extends JFrame {
             UIUtils.showWarningMessage(this, "Accès non autorisé. Droits administrateur requis.");
             return;
         }
-        // TODO: Implement user management
-        updateStatus("Gestion des utilisateurs");
-        UIUtils.showSuccessMessage(this, "Gestion des utilisateurs à implémenter");
+        try {
+            UserManagementFrame userFrame = new UserManagementFrame();
+            userFrame.setVisible(true);
+            updateStatus("Gestion des utilisateurs");
+        } catch (Exception e) {
+            UIUtils.showErrorMessage(this, "Erreur lors de l'ouverture de la gestion des utilisateurs: " + e.getMessage());
+        }
     }
     
     private void showClientManagement() {
-        // TODO: Implement client management
-        updateStatus("Gestion des clients/fournisseurs");
-        UIUtils.showSuccessMessage(this, "Gestion des clients/fournisseurs à implémenter");
+        try {
+            ClientManagementFrame clientFrame = new ClientManagementFrame();
+            clientFrame.setVisible(true);
+            updateStatus("Gestion des clients/fournisseurs");
+        } catch (Exception e) {
+            UIUtils.showErrorMessage(this, "Erreur lors de l'ouverture de la gestion des clients: " + e.getMessage());
+        }
     }
     
     private void showArticleManagement() {
-        // TODO: Implement article management
-        updateStatus("Gestion des articles");
-        UIUtils.showSuccessMessage(this, "Gestion des articles à implémenter");
+        try {
+            ArticleManagementFrame articleFrame = new ArticleManagementFrame();
+            articleFrame.setVisible(true);
+            updateStatus("Gestion des articles");
+        } catch (Exception e) {
+            UIUtils.showErrorMessage(this, "Erreur lors de l'ouverture de la gestion des articles: " + e.getMessage());
+        }
     }
     
     private void showQuotationManagement() {

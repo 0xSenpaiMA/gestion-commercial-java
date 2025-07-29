@@ -2,7 +2,6 @@ package com.gestioncommerciale.model;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,9 +18,10 @@ import jakarta.persistence.Table;
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 50)
     private String code;
     
     @Column(nullable = false)
@@ -30,10 +30,10 @@ public class Article {
     @Column
     private String description;
     
-    @Column(name = "prix_achat", precision = 10, scale = 2)
+    @Column(name = "prix_achat", columnDefinition = "REAL")
     private BigDecimal prixAchat;
     
-    @Column(name = "prix_vente", precision = 10, scale = 2, nullable = false)
+    @Column(name = "prix_vente", nullable = false, columnDefinition = "REAL")
     private BigDecimal prixVente;
     
     @Column(name = "stock_actuel")
@@ -58,10 +58,10 @@ public class Article {
     private boolean active = true;
     
     @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    private String createdAt;
     
-    @Column(name = "tva_rate")
-    private BigDecimal tvaRate = BigDecimal.valueOf(20.0); // 20% par défaut
+    @Column(name = "tva_rate", columnDefinition = "REAL")
+    private BigDecimal tvaRate;
     
     @Column
     private String codeBarres;
@@ -71,7 +71,8 @@ public class Article {
     
     // Constructors
     public Article() {
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = java.time.LocalDateTime.now().toString();
+        this.tvaRate = java.math.BigDecimal.valueOf(20.0); // 20% par défaut
     }
     
     public Article(String code, String designation, BigDecimal prixVente) {
@@ -121,8 +122,8 @@ public class Article {
     public boolean isActive() { return active; }
     public void setActive(boolean active) { this.active = active; }
     
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public String getCreatedAt() { return createdAt; }
+    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
     
     public BigDecimal getTvaRate() { return tvaRate; }
     public void setTvaRate(BigDecimal tvaRate) { this.tvaRate = tvaRate; }

@@ -1170,3 +1170,133 @@ Caused by: java.sql.SQLFeatureNotSupportedException: not implemented by SQLite J
 2025-07-28 14:07:21.092 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
 2025-07-28 14:07:21.128 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
 2025-07-28 14:07:23.641 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin
+2025-07-28 15:43:24.040 [main] INFO  c.g.config.DatabaseConfig - Users table created/verified
+2025-07-28 15:43:24.046 [main] INFO  c.g.config.DatabaseConfig - Admin user already exists (count: 1)
+2025-07-28 15:43:24.048 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-28 15:43:24.508 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-28 15:43:25.805 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-28 15:43:25.807 [main] INFO  c.g.service.DatabaseInitService - Database already initialized with sample data
+2025-07-28 15:43:25.807 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-28 15:43:25.808 [main] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-28 15:43:26.225 [main] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-28 15:43:26.248 [main] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-28 15:43:28.563 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-28 15:43:28.564 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-28 15:43:28.565 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-28 15:43:29.720 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - === Authentication attempt ===
+2025-07-28 15:43:29.721 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Login: 'admin'
+2025-07-28 15:43:29.721 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Password length: 8
+2025-07-28 15:43:29.722 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Users found with login 'admin': 1
+2025-07-28 15:43:29.724 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
+2025-07-28 15:43:29.762 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
+2025-07-28 15:43:35.439 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin
+2025-07-29 15:36:06.987 [main] INFO  c.g.config.DatabaseConfig - Users table created/verified
+2025-07-29 15:36:06.991 [main] INFO  c.g.config.DatabaseConfig - Admin user already exists (count: 1)
+2025-07-29 15:36:06.993 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-29 15:36:07.488 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-29 15:36:08.789 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-29 15:36:08.790 [main] INFO  c.g.service.DatabaseInitService - Database already initialized with sample data
+2025-07-29 15:36:08.790 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-29 15:36:08.791 [main] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 15:36:09.207 [main] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 15:36:09.231 [main] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 15:36:11.657 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 15:36:11.659 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 15:36:11.660 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 15:36:14.095 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - === Authentication attempt ===
+2025-07-29 15:36:14.096 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Login: 'admin'
+2025-07-29 15:36:14.096 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Password length: 8
+2025-07-29 15:36:14.097 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Users found with login 'admin': 1
+2025-07-29 15:36:14.099 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
+2025-07-29 15:36:14.136 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
+2025-07-29 15:36:37.667 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin
+2025-07-29 15:54:11.148 [main] INFO  c.g.config.DatabaseConfig - Users table created/verified
+2025-07-29 15:54:11.156 [main] INFO  c.g.config.DatabaseConfig - Admin user already exists (count: 1)
+2025-07-29 15:54:11.158 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-29 15:54:11.645 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-29 15:54:12.934 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-29 15:54:12.936 [main] INFO  c.g.service.DatabaseInitService - Database already initialized with sample data
+2025-07-29 15:54:12.936 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-29 15:54:12.937 [main] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 15:54:13.340 [main] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 15:54:13.366 [main] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 15:54:15.676 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 15:54:15.678 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 15:54:15.679 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 15:54:16.803 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - === Authentication attempt ===
+2025-07-29 15:54:16.803 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Login: 'admin'
+2025-07-29 15:54:16.803 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Password length: 8
+2025-07-29 15:54:16.804 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Users found with login 'admin': 1
+2025-07-29 15:54:16.806 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
+2025-07-29 15:54:16.839 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
+2025-07-29 15:54:37.970 [AWT-EventQueue-0] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-29 15:54:37.970 [AWT-EventQueue-0] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-29 15:57:55.697 [AWT-EventQueue-0] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-29 15:57:55.697 [AWT-EventQueue-0] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-29 16:01:23.942 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin
+2025-07-29 16:15:17.305 [main] INFO  c.g.config.DatabaseConfig - Users table created/verified
+2025-07-29 16:15:17.311 [main] INFO  c.g.config.DatabaseConfig - Admin user already exists (count: 1)
+2025-07-29 16:15:17.313 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-29 16:15:17.706 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-29 16:15:18.905 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-29 16:15:18.907 [main] INFO  c.g.service.DatabaseInitService - Database already initialized with sample data
+2025-07-29 16:15:18.907 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-29 16:15:18.908 [main] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 16:15:19.299 [main] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 16:15:19.319 [main] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 16:15:21.625 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 16:15:21.627 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 16:15:21.628 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 16:15:22.742 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - === Authentication attempt ===
+2025-07-29 16:15:22.742 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Login: 'admin'
+2025-07-29 16:15:22.742 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Password length: 8
+2025-07-29 16:15:22.744 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Users found with login 'admin': 1
+2025-07-29 16:15:22.745 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
+2025-07-29 16:15:22.786 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
+2025-07-29 16:15:36.330 [AWT-EventQueue-0] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-29 16:15:36.330 [AWT-EventQueue-0] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-29 16:16:16.142 [AWT-EventQueue-0] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-29 16:16:16.142 [AWT-EventQueue-0] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-29 16:17:47.658 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin
+2025-07-29 16:21:28.045 [main] INFO  c.g.config.DatabaseConfig - Users table created/verified
+2025-07-29 16:21:28.051 [main] INFO  c.g.config.DatabaseConfig - Admin user already exists (count: 1)
+2025-07-29 16:21:28.054 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-29 16:21:28.480 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-29 16:21:29.661 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-29 16:21:29.663 [main] INFO  c.g.service.DatabaseInitService - Database already initialized with sample data
+2025-07-29 16:21:29.663 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-29 16:21:29.664 [main] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 16:21:30.051 [main] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 16:21:30.074 [main] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 16:21:32.399 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 16:21:32.400 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 16:21:32.401 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 16:21:33.555 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - === Authentication attempt ===
+2025-07-29 16:21:33.555 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Login: 'admin'
+2025-07-29 16:21:33.555 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Password length: 8
+2025-07-29 16:21:33.557 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Users found with login 'admin': 1
+2025-07-29 16:21:33.558 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
+2025-07-29 16:21:33.596 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
+2025-07-29 16:21:56.028 [AWT-EventQueue-0] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 0, SQLState: null
+2025-07-29 16:21:56.029 [AWT-EventQueue-0] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - not implemented by SQLite JDBC driver
+2025-07-29 16:24:31.165 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin
+2025-07-29 16:26:45.294 [main] INFO  c.g.config.DatabaseConfig - Users table created/verified
+2025-07-29 16:26:45.298 [main] INFO  c.g.config.DatabaseConfig - Admin user already exists (count: 1)
+2025-07-29 16:26:45.299 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-29 16:26:45.743 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-29 16:26:47.009 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-29 16:26:47.011 [main] INFO  c.g.service.DatabaseInitService - Database already initialized with sample data
+2025-07-29 16:26:47.011 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-29 16:26:47.012 [main] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 16:26:47.386 [main] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 16:26:47.408 [main] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 16:26:49.739 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 16:26:49.740 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 16:26:49.741 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 16:26:50.875 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - === Authentication attempt ===
+2025-07-29 16:26:50.875 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Login: 'admin'
+2025-07-29 16:26:50.875 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Password length: 8
+2025-07-29 16:26:50.877 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Users found with login 'admin': 1
+2025-07-29 16:26:50.879 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
+2025-07-29 16:26:50.918 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
+2025-07-29 16:30:56.830 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin

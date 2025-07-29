@@ -1,7 +1,5 @@
 package com.gestioncommerciale.model;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -19,6 +17,7 @@ import jakarta.persistence.Table;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     
     @Column(nullable = false)
@@ -59,7 +58,7 @@ public class Client {
     private String codePostal;
     
     @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    private String createdAt;
     
     @Column(name = "credit_limit")
     private Double creditLimit;
@@ -76,7 +75,7 @@ public class Client {
     
     // Constructors
     public Client() {
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = java.time.LocalDateTime.now().toString();
     }
     
     public Client(String nom, ClientType type) {
@@ -125,8 +124,8 @@ public class Client {
     public String getCodePostal() { return codePostal; }
     public void setCodePostal(String codePostal) { this.codePostal = codePostal; }
     
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public String getCreatedAt() { return createdAt; }
+    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
     
     public Double getCreditLimit() { return creditLimit; }
     public void setCreditLimit(Double creditLimit) { this.creditLimit = creditLimit; }

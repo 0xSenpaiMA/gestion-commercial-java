@@ -20,6 +20,15 @@
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
+            
+            <!-- SQLite specific optimizations -->
+            <property name="hibernate.connection.autocommit" value="false"/>
+            <property name="hibernate.jdbc.batch_size" value="0"/>
+            <property name="hibernate.order_inserts" value="false"/>
+            <property name="hibernate.order_updates" value="false"/>
+            <property name="hibernate.use_sql_comments" value="false"/>
+            <property name="hibernate.id.new_generator_mappings" value="false"/>
+            <property name="hibernate.jdbc.use_get_generated_keys" value="false"/>
         </properties>
     </persistence-unit>
 </persistence>

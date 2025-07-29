@@ -89,7 +89,7 @@ public class AuthService {
             if (verifyPassword(password, storedPassword)) {
                 // Update last login
                 em.getTransaction().begin();
-                user.setLastLogin(LocalDateTime.now());
+                user.setLastLogin(LocalDateTime.now().toString());
                 em.merge(user);
                 em.getTransaction().commit();
                 

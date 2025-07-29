@@ -1,7 +1,5 @@
 package com.gestioncommerciale.model;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -19,6 +17,7 @@ import jakarta.persistence.Table;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     
     @Column(nullable = false)
@@ -27,7 +26,7 @@ public class User {
     @Column(nullable = false)
     private String prenom;
     
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 50)
     private String login;
     
     @Column(nullable = false)
@@ -41,10 +40,10 @@ public class User {
     private boolean active = true;
     
     @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    private String createdAt;
     
     @Column(name = "last_login")
-    private LocalDateTime lastLogin;
+    private String lastLogin;
     
     @Column
     private String email;
@@ -58,7 +57,7 @@ public class User {
     
     // Constructors
     public User() {
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = java.time.LocalDateTime.now().toString();
     }
     
     public User(String nom, String prenom, String login, String password, UserRole role) {
@@ -92,11 +91,11 @@ public class User {
     public boolean isActive() { return active; }
     public void setActive(boolean active) { this.active = active; }
     
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public String getCreatedAt() { return createdAt; }
+    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
     
-    public LocalDateTime getLastLogin() { return lastLogin; }
-    public void setLastLogin(LocalDateTime lastLogin) { this.lastLogin = lastLogin; }
+    public String getLastLogin() { return lastLogin; }
+    public void setLastLogin(String lastLogin) { this.lastLogin = lastLogin; }
     
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }

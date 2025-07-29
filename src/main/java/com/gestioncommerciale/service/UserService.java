@@ -6,6 +6,7 @@ import com.gestioncommerciale.config.DatabaseConfig;
 import com.gestioncommerciale.model.User;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
 
 /**
@@ -57,22 +58,36 @@ public class UserService {
     
     public User save(User user) {
         EntityManager em = DatabaseConfig.getEntityManager();
+        EntityTransaction transaction = null;
+        
         try {
-            em.getTransaction().begin();
+            transaction = em.getTransaction();
+            transaction.begin();
             
+            User savedUser;
             if (user.getId() == null) {
+                // New user - ensure createdAt is set
+                if (user.getCreatedAt() == null) {
+                    user.setCreatedAt(java.time.LocalDateTime.now().toString());
+                }
                 em.persist(user);
+                savedUser = user;
             } else {
-                user = em.merge(user);
+                savedUser = em.merge(user);
             }
             
-            em.getTransaction().commit();
-            return user;
+            em.flush(); // Force immediate write to database
+            transaction.commit();
+            return savedUser;
         } catch (Exception e) {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
+            if (transaction != null && transaction.isActive()) {
+                try {
+                    transaction.rollback();
+                } catch (Exception rollbackEx) {
+                    // Log but don't throw rollback exception
+                }
             }
-            throw new RuntimeException("Error saving user", e);
+            throw new RuntimeException("Error saving user: " + e.getMessage(), e);
         } finally {
             em.close();
         }
