@@ -10,13 +10,13 @@ import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.AbstractTableModel;
@@ -238,7 +238,7 @@ public class CompanyInfoManagementFrame extends JFrame {
     /**
      * Dialog for adding/editing company information
      */
-    private static class CompanyFormDialog extends JFrame {
+    private static class CompanyFormDialog extends JDialog {
         private JTextField raisonSocialeField, telephoneField, emailField, faxField;
         private JTextField adresseField, villeField, codePostalField, paysField;
         private JTextField cnssField, rcField, ifNumberField, iceField;
@@ -247,7 +247,7 @@ public class CompanyInfoManagementFrame extends JFrame {
         private CompanyInfo companyInfo;
         
         public CompanyFormDialog(JFrame parent, CompanyInfo companyInfo) {
-            super(companyInfo == null ? "Ajouter une entreprise" : "Modifier l'entreprise");
+            super(parent, companyInfo == null ? "Ajouter une entreprise" : "Modifier l'entreprise", true);
             this.companyInfo = companyInfo;
             initializeComponents();
             setupLayout();
@@ -257,6 +257,7 @@ public class CompanyInfoManagementFrame extends JFrame {
             }
             pack();
             setLocationRelativeTo(parent);
+            setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         }
         
         private void initializeComponents() {
