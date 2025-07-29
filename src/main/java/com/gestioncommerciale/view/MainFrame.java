@@ -274,9 +274,9 @@ public class MainFrame extends JFrame {
     }
     
     private void showInvoiceManagement() {
-        // TODO: Implement invoice management
         updateStatus("Gestion des factures");
-        UIUtils.showSuccessMessage(this, "Gestion des factures à implémenter");
+        FactureManagementFrame factureFrame = new FactureManagementFrame();
+        factureFrame.setVisible(true);
     }
     
     private void showPurchaseOrderManagement() {

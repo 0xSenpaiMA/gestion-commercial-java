@@ -210,5 +210,54 @@ VALUES
 (2, 2, 2.0, 0.0, NULL, NULL, 'Consultation en attente de planification'),
 (2, 5, 1.0, 0.0, 'Salle formation', NULL, 'Formation programmée pour la semaine prochaine');
 
+-- Factures table
+CREATE TABLE IF NOT EXISTS factures (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    numero VARCHAR(255) UNIQUE NOT NULL,
+    client_id INTEGER NOT NULL,
+    bon_livraison_id INTEGER,
+    date_creation TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_facturation DATE,
+    date_echeance DATE,
+    observations TEXT,
+    total_ht DECIMAL(10,2) DEFAULT 0.00,
+    taux_tva DECIMAL(5,2) DEFAULT 20.0,
+    montant_tva DECIMAL(10,2) DEFAULT 0.00,
+    total_ttc DECIMAL(10,2) DEFAULT 0.00,
+    montant_paye DECIMAL(10,2) DEFAULT 0.00,
+    mode_paiement VARCHAR(255),
+    statut VARCHAR(255) NOT NULL DEFAULT 'BROUILLON' CHECK (statut IN ('BROUILLON', 'VALIDEE', 'ENVOYEE', 'PAYEE', 'PARTIELLEMENT_PAYEE', 'EN_RETARD', 'ANNULEE')),
+    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE,
+    FOREIGN KEY (bon_livraison_id) REFERENCES bons_livraison(id) ON DELETE SET NULL
+);
+
+-- Lignes de facture table
+CREATE TABLE IF NOT EXISTS lignes_facture (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    facture_id INTEGER NOT NULL,
+    article_id INTEGER NOT NULL,
+    quantite DECIMAL(10,3) NOT NULL DEFAULT 1.0,
+    prix_unitaire DECIMAL(10,2) NOT NULL,
+    remise DECIMAL(5,2) DEFAULT 0.0,
+    total DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    description TEXT,
+    FOREIGN KEY (facture_id) REFERENCES factures(id) ON DELETE CASCADE,
+    FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE RESTRICT
+);
+
+-- Sample factures
+INSERT OR IGNORE INTO factures (id, numero, client_id, bon_livraison_id, date_creation, date_facturation, date_echeance, observations, total_ht, taux_tva, montant_tva, total_ttc, montant_paye, mode_paiement, statut) 
+VALUES 
+(1, 'FAC202501001', 1, 1, '2025-01-17 14:00:00', '2025-01-17', '2025-02-16', 'Facture pour matériel informatique livré', 1275.00, 20.0, 255.00, 1530.00, 0.00, 'Virement', 'ENVOYEE'),
+(2, 'FAC202501002', 3, NULL, '2025-01-22 09:30:00', '2025-01-22', '2025-02-21', 'Facture pour services de formation', 2000.00, 20.0, 400.00, 2400.00, 1200.00, 'Chèque', 'PARTIELLEMENT_PAYEE');
+
+-- Sample lignes de facture
+INSERT OR IGNORE INTO lignes_facture (facture_id, article_id, quantite, prix_unitaire, remise, total, description) 
+VALUES 
+(1, 4, 1.0, 1200.00, 0.0, 1200.00, 'Ordinateur portable professionnel facturé'),
+(1, 1, 1.0, 75.00, 0.0, 75.00, 'Accessoires facturés'),
+(2, 2, 2.0, 500.00, 0.0, 1000.00, 'Consultation technique - 2 heures facturées'),
+(2, 5, 1.0, 1500.00, 25.0, 1125.00, 'Formation équipe - 1 jour facturée (remise 25%)');
+
 -- Enable foreign keys
 PRAGMA foreign_keys = ON;

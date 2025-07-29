@@ -16,6 +16,8 @@
         <class>com.gestioncommerciale.model.LigneDevis</class>
         <class>com.gestioncommerciale.model.BonLivraison</class>
         <class>com.gestioncommerciale.model.LigneLivraison</class>
+        <class>com.gestioncommerciale.model.Facture</class>
+        <class>com.gestioncommerciale.model.LigneFacture</class>
         
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
