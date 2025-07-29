@@ -280,9 +280,9 @@ public class MainFrame extends JFrame {
     }
     
     private void showPurchaseOrderManagement() {
-        // TODO: Implement purchase order management
         updateStatus("Gestion des bons de commande");
-        UIUtils.showSuccessMessage(this, "Gestion des bons de commande à implémenter");
+        BonCommandeManagementFrame frame = new BonCommandeManagementFrame();
+        frame.setVisible(true);
     }
     
     private void showDashboard() {

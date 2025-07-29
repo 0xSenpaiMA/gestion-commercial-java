@@ -1460,3 +1460,23 @@ Caused by: java.sql.SQLFeatureNotSupportedException: not implemented by SQLite J
 2025-07-29 17:40:44.796 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
 2025-07-29 17:40:44.833 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
 2025-07-29 17:41:20.702 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin
+2025-07-29 18:04:27.258 [main] INFO  c.g.config.DatabaseConfig - Users table created/verified
+2025-07-29 18:04:27.264 [main] INFO  c.g.config.DatabaseConfig - Admin user already exists (count: 1)
+2025-07-29 18:04:27.265 [main] INFO  c.g.config.DatabaseConfig - SQLite database created/connected successfully
+2025-07-29 18:04:27.717 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-07-29 18:04:29.305 [main] INFO  c.g.config.DatabaseConfig - JPA initialized successfully
+2025-07-29 18:04:29.307 [main] INFO  c.g.service.DatabaseInitService - Database already initialized with sample data
+2025-07-29 18:04:29.308 [main] INFO  c.g.config.DatabaseConfig - Database initialized successfully
+2025-07-29 18:04:29.309 [main] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 18:04:29.681 [main] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 18:04:29.707 [main] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 18:04:32.018 [AWT-EventQueue-0] INFO  c.g.service.AuthService - === Initializing default admin user ===
+2025-07-29 18:04:32.020 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Existing admin users count: 1
+2025-07-29 18:04:32.021 [AWT-EventQueue-0] INFO  c.g.service.AuthService - Admin user exists: Système Administrateur (role: ADMIN, active: true)
+2025-07-29 18:04:35.125 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - === Authentication attempt ===
+2025-07-29 18:04:35.125 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Login: 'admin'
+2025-07-29 18:04:35.125 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Password length: 8
+2025-07-29 18:04:35.126 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - Users found with login 'admin': 1
+2025-07-29 18:04:35.128 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - User found: Système Administrateur (login: admin, role: ADMIN, active: true)
+2025-07-29 18:04:35.167 [SwingWorker-pool-2-thread-1] INFO  c.g.service.AuthService - ✓ Authentication successful for user: admin
+2025-07-29 18:06:29.794 [AWT-EventQueue-0] INFO  c.g.service.AuthService - User logged out: admin

@@ -6,9 +6,11 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.Window;
+import java.awt.image.BufferedImage;
 import java.util.Enumeration;
 
 import javax.swing.BorderFactory;
@@ -145,6 +147,33 @@ public class UIUtils {
             return new ImageIcon(img);
         } catch (Exception e) {
             return null;
+        }
+    }
+    
+    /**
+     * Sets the application icon for the given frame
+     * @param frame the JFrame to set the icon for
+     */
+    public static void setApplicationIcon(Window frame) {
+        try {
+            // Try to load application icon from resources
+            ImageIcon icon = createImageIcon("/icons/app-icon.png", 32, 32);
+            if (icon != null) {
+                frame.setIconImage(icon.getImage());
+            } else {
+                // Fallback: create a simple colored icon if resource not found
+                BufferedImage image = new BufferedImage(32, 32, BufferedImage.TYPE_INT_RGB);
+                Graphics2D g2d = image.createGraphics();
+                g2d.setColor(PRIMARY_COLOR);
+                g2d.fillRect(0, 0, 32, 32);
+                g2d.setColor(Color.WHITE);
+                g2d.setFont(new Font("Arial", Font.BOLD, 20));
+                g2d.drawString("GC", 4, 22);
+                g2d.dispose();
+                frame.setIconImage(image);
+            }
+        } catch (Exception e) {
+            // Silently ignore icon setting errors
         }
     }
 }
