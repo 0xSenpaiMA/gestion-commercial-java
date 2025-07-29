@@ -101,6 +101,36 @@ CREATE TABLE IF NOT EXISTS articles (
     image VARCHAR(255)
 );
 
+-- Devis table
+CREATE TABLE IF NOT EXISTS devis (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    numero VARCHAR(255) UNIQUE NOT NULL,
+    client_id INTEGER NOT NULL,
+    date_creation TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    date_validite TIMESTAMP,
+    observations TEXT,
+    total_ht DECIMAL(10,2) DEFAULT 0.00,
+    taux_tva DECIMAL(5,2) DEFAULT 20.0,
+    montant_tva DECIMAL(10,2) DEFAULT 0.00,
+    total_ttc DECIMAL(10,2) DEFAULT 0.00,
+    statut VARCHAR(255) NOT NULL DEFAULT 'BROUILLON' CHECK (statut IN ('BROUILLON', 'ENVOYE', 'ACCEPTE', 'REFUSE', 'EXPIRE')),
+    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
+);
+
+-- Lignes de devis table
+CREATE TABLE IF NOT EXISTS lignes_devis (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    devis_id INTEGER NOT NULL,
+    article_id INTEGER NOT NULL,
+    quantite DECIMAL(10,3) NOT NULL DEFAULT 1.0,
+    prix_unitaire DECIMAL(10,2) NOT NULL,
+    remise DECIMAL(5,2) DEFAULT 0.0,
+    total DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    description TEXT,
+    FOREIGN KEY (devis_id) REFERENCES devis(id) ON DELETE CASCADE,
+    FOREIGN KEY (article_id) REFERENCES articles(id) ON DELETE RESTRICT
+);
+
 -- Sample company information
 INSERT OR IGNORE INTO company_info (id, raison_sociale, adresse, ville, pays, telephone, email, ice) 
 VALUES (1, 'Entreprise Demo SARL', '123 Rue de la Démonstration', 'Casablanca', 'Maroc', '0522123456', 'contact@demo.ma', '001234567890123');
@@ -120,6 +150,20 @@ VALUES
 ('ART003', 'Produit Standard', 'Produit standard avec stock', 25.00, 40.00, 250, 20, 'Catégorie B', 'Unité'),
 ('ART004', 'Matériel Informatique', 'Équipement informatique', 800.00, 1200.00, 15, 5, 'Informatique', 'Pièce'),
 ('ART005', 'Formation', 'Session de formation', 0.00, 1500.00, 0, 0, 'Services', 'Jour');
+
+-- Sample devis
+INSERT OR IGNORE INTO devis (id, numero, client_id, date_creation, date_validite, observations, total_ht, taux_tva, montant_tva, total_ttc, statut) 
+VALUES 
+(1, 'DEV202501001', 1, '2025-01-15 10:30:00', '2025-02-14', 'Devis pour matériel informatique', 1275.00, 20.0, 255.00, 1530.00, 'ENVOYE'),
+(2, 'DEV202501002', 3, '2025-01-20 14:15:00', '2025-02-19', 'Formation et consultation', 2000.00, 20.0, 400.00, 2400.00, 'BROUILLON');
+
+-- Sample lignes de devis
+INSERT OR IGNORE INTO lignes_devis (devis_id, article_id, quantite, prix_unitaire, remise, total, description) 
+VALUES 
+(1, 4, 1.0, 1200.00, 0.0, 1200.00, 'Ordinateur portable professionnel'),
+(1, 1, 1.0, 75.00, 0.0, 75.00, 'Accessoires inclus'),
+(2, 2, 2.0, 500.00, 0.0, 1000.00, 'Consultation technique - 2 heures'),
+(2, 5, 1.0, 1500.00, 25.0, 1125.00, 'Formation équipe - 1 jour (remise 25%)');
 
 -- Enable foreign keys
 PRAGMA foreign_keys = ON;

@@ -12,6 +12,8 @@
         <class>com.gestioncommerciale.model.CompanyInfo</class>
         <class>com.gestioncommerciale.model.Client</class>
         <class>com.gestioncommerciale.model.Article</class>
+        <class>com.gestioncommerciale.model.Devis</class>
+        <class>com.gestioncommerciale.model.LigneDevis</class>
         
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.sqlite.JDBC"/>

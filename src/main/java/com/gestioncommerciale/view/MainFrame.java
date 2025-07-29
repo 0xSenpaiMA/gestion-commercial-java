@@ -257,9 +257,14 @@ public class MainFrame extends JFrame {
     }
     
     private void showQuotationManagement() {
-        // TODO: Implement quotation management
-        updateStatus("Gestion des devis");
-        UIUtils.showSuccessMessage(this, "Gestion des devis à implémenter");
+        try {
+            updateStatus("Ouverture de la gestion des devis...");
+            DevisManagementFrame devisFrame = new DevisManagementFrame();
+            devisFrame.setVisible(true);
+            updateStatus("Gestion des devis ouverte");
+        } catch (Exception e) {
+            UIUtils.showErrorMessage(this, "Erreur lors de l'ouverture de la gestion des devis: " + e.getMessage());
+        }
     }
     
     private void showDeliveryNoteManagement() {
