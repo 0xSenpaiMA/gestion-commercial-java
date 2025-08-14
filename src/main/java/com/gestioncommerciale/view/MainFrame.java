@@ -330,9 +330,9 @@ public class MainFrame extends JFrame {
     }
     
     private void showStockManagement() {
-        // TODO: Implement stock management
-        updateStatus("Gestion de stock");
-        UIUtils.showSuccessMessage(this, "Gestion de stock à implémenter");
+        updateStatus("Ouverture de la gestion de stock");
+        StockManagementFrame stockFrame = new StockManagementFrame();
+        stockFrame.setVisible(true);
     }
     
     private void showBankingManagement() {
