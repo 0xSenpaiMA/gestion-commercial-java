@@ -50,7 +50,7 @@ public class FactureEditDialog extends JDialog {
     private JTextField dateFacturationField;
     private JTextField dateEcheanceField;
     private JComboBox<Facture.StatutFacture> statutComboBox;
-    private JTextField modePaiementField;
+    private JComboBox<com.gestioncommerciale.model.MoyenPaiement> moyenPaiementComboBox;
     private JTextField tauxTVAField;
     private JTextField montantPayeField;
     private JTextArea observationsArea;
@@ -100,7 +100,7 @@ public class FactureEditDialog extends JDialog {
         dateFacturationField = new JTextField(20);
         dateEcheanceField = new JTextField(20);
         statutComboBox = new JComboBox<>(Facture.StatutFacture.values());
-        modePaiementField = new JTextField(20);
+        moyenPaiementComboBox = new JComboBox<>(com.gestioncommerciale.model.MoyenPaiement.values());
         tauxTVAField = new JTextField("20.0", 10);
         montantPayeField = new JTextField("0.00", 10);
         observationsArea = new JTextArea(3, 20);
@@ -173,9 +173,9 @@ public class FactureEditDialog extends JDialog {
         mainPanel.add(statutComboBox, gbc);
         
         gbc.gridx = 2;
-        mainPanel.add(new JLabel("Mode Paiement:"), gbc);
+        mainPanel.add(new JLabel("Moyen Paiement:"), gbc);
         gbc.gridx = 3;
-        mainPanel.add(modePaiementField, gbc);
+        mainPanel.add(moyenPaiementComboBox, gbc);
         
         // Row 4: TVA and Payment amount
         gbc.gridx = 0; gbc.gridy = 3;
@@ -313,7 +313,7 @@ public class FactureEditDialog extends JDialog {
         }
         
         statutComboBox.setSelectedItem(facture.getStatut());
-        modePaiementField.setText(facture.getModePaiement());
+        moyenPaiementComboBox.setSelectedItem(facture.getMoyenPaiement());
         tauxTVAField.setText(facture.getTauxTVA().toString());
         montantPayeField.setText(facture.getMontantPaye().toString());
         observationsArea.setText(facture.getObservations());
@@ -421,7 +421,7 @@ public class FactureEditDialog extends JDialog {
             }
             
             facture.setStatut((Facture.StatutFacture) statutComboBox.getSelectedItem());
-            facture.setModePaiement(modePaiementField.getText().trim());
+            facture.setMoyenPaiement((com.gestioncommerciale.model.MoyenPaiement) moyenPaiementComboBox.getSelectedItem());
             facture.setObservations(observationsArea.getText().trim());
             
             try {

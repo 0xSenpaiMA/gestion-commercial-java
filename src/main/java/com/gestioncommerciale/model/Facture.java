@@ -69,8 +69,9 @@ public class Facture {
     @Column(name = "montant_paye", precision = 10, scale = 2)
     private BigDecimal montantPaye = BigDecimal.ZERO;
     
-    @Column(name = "mode_paiement")
-    private String modePaiement;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "moyen_paiement")
+    private MoyenPaiement moyenPaiement;
     
     @Enumerated(EnumType.STRING)
     @Column(name = "statut", nullable = false)
@@ -196,12 +197,35 @@ public class Facture {
         this.montantPaye = montantPaye;
     }
     
+    public MoyenPaiement getMoyenPaiement() {
+        return moyenPaiement;
+    }
+    
+    public void setMoyenPaiement(MoyenPaiement moyenPaiement) {
+        this.moyenPaiement = moyenPaiement;
+    }
+    
+    // Méthodes de compatibilité pour le code existant
     public String getModePaiement() {
-        return modePaiement;
+        return moyenPaiement != null ? moyenPaiement.getLibelle() : null;
     }
     
     public void setModePaiement(String modePaiement) {
-        this.modePaiement = modePaiement;
+        if (modePaiement == null || modePaiement.trim().isEmpty()) {
+            this.moyenPaiement = null;
+            return;
+        }
+        
+        // Recherche par libellé
+        for (MoyenPaiement mp : MoyenPaiement.values()) {
+            if (mp.getLibelle().equalsIgnoreCase(modePaiement.trim())) {
+                this.moyenPaiement = mp;
+                return;
+            }
+        }
+        
+        // Si aucune correspondance trouvée, utilise AUTRE
+        this.moyenPaiement = MoyenPaiement.AUTRE;
     }
     
     public StatutFacture getStatut() {

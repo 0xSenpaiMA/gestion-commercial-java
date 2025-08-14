@@ -57,7 +57,8 @@ public class FactureManagementFrame extends JFrame {
         factureTable.getColumnModel().getColumn(5).setPreferredWidth(100); // Montant TTC
         factureTable.getColumnModel().getColumn(6).setPreferredWidth(100); // Montant payé
         factureTable.getColumnModel().getColumn(7).setPreferredWidth(100); // Statut
-        factureTable.getColumnModel().getColumn(8).setPreferredWidth(100); // Bon livraison
+        factureTable.getColumnModel().getColumn(8).setPreferredWidth(120); // Moyen paiement
+        factureTable.getColumnModel().getColumn(9).setPreferredWidth(100); // Bon livraison
         
         // Create buttons
         addButton = UIUtils.createStyledButton("Nouvelle Facture", UIUtils.SUCCESS_COLOR);
@@ -251,7 +252,7 @@ public class FactureManagementFrame extends JFrame {
     private static class FactureTableModel extends AbstractTableModel {
         private final String[] columnNames = {
             "ID", "Numéro", "Client", "Date Facturation", "Date Échéance", 
-            "Montant TTC", "Montant Payé", "Statut", "Bon Livraison"
+            "Montant TTC", "Montant Payé", "Statut", "Moyen Paiement", "Bon Livraison"
         };
         private List<Facture> facturesList = List.of();
         
@@ -290,7 +291,8 @@ public class FactureManagementFrame extends JFrame {
                 case 5: return formatCurrency(facture.getTotalTTC());
                 case 6: return formatCurrency(facture.getMontantPaye());
                 case 7: return facture.getStatut() != null ? facture.getStatut().getLibelle() : "N/A";
-                case 8: return facture.getBonLivraison() != null ? facture.getBonLivraison().getNumero() : "Aucun";
+                case 8: return facture.getMoyenPaiement() != null ? facture.getMoyenPaiement().getLibelle() : "Non défini";
+                case 9: return facture.getBonLivraison() != null ? facture.getBonLivraison().getNumero() : "Aucun";
                 default: return "";
             }
         }

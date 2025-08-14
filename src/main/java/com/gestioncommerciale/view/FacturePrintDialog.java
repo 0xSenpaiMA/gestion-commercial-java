@@ -106,8 +106,8 @@ public class FacturePrintDialog extends JDialog implements Printable {
             content.append("Bon de livraison: ").append(facture.getBonLivraison().getNumero()).append("\n");
         }
         
-        if (facture.getModePaiement() != null && !facture.getModePaiement().trim().isEmpty()) {
-            content.append("Mode de paiement: ").append(facture.getModePaiement()).append("\n");
+        if (facture.getMoyenPaiement() != null) {
+            content.append("Moyen de paiement: ").append(facture.getMoyenPaiement().getLibelle()).append("\n");
         }
         
         content.append("\n");
@@ -199,8 +199,8 @@ public class FacturePrintDialog extends JDialog implements Printable {
                 .append(facture.getDateEcheance().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")))
                 .append("\n");
         }
-        if (facture.getModePaiement() != null && !facture.getModePaiement().trim().isEmpty()) {
-            content.append("Mode de paiement: ").append(facture.getModePaiement()).append("\n");
+        if (facture.getMoyenPaiement() != null) {
+            content.append("Moyen de paiement: ").append(facture.getMoyenPaiement().getLibelle()).append("\n");
         }
         
         // Footer
