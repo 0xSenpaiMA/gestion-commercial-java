@@ -286,9 +286,9 @@ public class MainFrame extends JFrame {
     }
     
     private void showDashboard() {
-        // TODO: Implement dashboard
         updateStatus("Tableau de bord");
-        UIUtils.showSuccessMessage(this, "Tableau de bord à implémenter");
+        StatisticsFrame frame = new StatisticsFrame();
+        frame.setVisible(true);
     }
     
     private void showReports() {
