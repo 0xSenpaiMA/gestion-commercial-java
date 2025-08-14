@@ -67,99 +67,97 @@ public class MainFrame extends JFrame {
     
     private void setupMenuBar() {
         JMenuBar menuBar = new JMenuBar();
+        menuBar.setBackground(Color.WHITE);
+        menuBar.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         
         // File Menu
-        JMenu fileMenu = new JMenu("Fichier");
+        JMenu fileMenu = UIUtils.createStyledMenu("Fichier");
         
-        JMenuItem companyInfoItem = new JMenuItem("Informations Entreprise");
+        JMenuItem companyInfoItem = UIUtils.createStyledMenuItem("Informations Entreprise");
         companyInfoItem.addActionListener(e -> showCompanyInfoForm());
         fileMenu.add(companyInfoItem);
         
         fileMenu.addSeparator();
         
-        JMenuItem logoutItem = new JMenuItem("Déconnexion");
+        JMenuItem logoutItem = UIUtils.createStyledMenuItem("Déconnexion");
         logoutItem.addActionListener(e -> logout());
         fileMenu.add(logoutItem);
         
-        JMenuItem exitItem = new JMenuItem("Quitter");
+        JMenuItem exitItem = UIUtils.createStyledMenuItem("Quitter");
         exitItem.addActionListener(e -> exitApplication());
         fileMenu.add(exitItem);
         
         // Management Menu
-        JMenu managementMenu = new JMenu("Gestion");
+        JMenu managementMenu = UIUtils.createStyledMenu("Gestion");
         
-        JMenuItem usersItem = new JMenuItem("Utilisateurs");
+        JMenuItem usersItem = UIUtils.createStyledMenuItem("Utilisateurs");
         usersItem.addActionListener(e -> showUserManagement());
         managementMenu.add(usersItem);
         
-        JMenuItem clientsItem = new JMenuItem("Clients/Fournisseurs");
+        JMenuItem clientsItem = UIUtils.createStyledMenuItem("Clients/Fournisseurs");
         clientsItem.addActionListener(e -> showClientManagement());
         managementMenu.add(clientsItem);
         
-        JMenuItem articlesItem = new JMenuItem("Articles");
+        JMenuItem articlesItem = UIUtils.createStyledMenuItem("Articles");
         articlesItem.addActionListener(e -> showArticleManagement());
         managementMenu.add(articlesItem);
         
-        JMenuItem contratsItem = new JMenuItem("Contrats d'Assistance");
+        JMenuItem contratsItem = UIUtils.createStyledMenuItem("Contrats d'Assistance");
         contratsItem.addActionListener(e -> showContratAssistanceManagement());
         managementMenu.add(contratsItem);
         
         // Documents Menu
-        JMenu documentsMenu = new JMenu("Documents");
+        JMenu documentsMenu = UIUtils.createStyledMenu("Documents");
         
-        JMenuItem quotationsItem = new JMenuItem("Devis");
+        JMenuItem quotationsItem = UIUtils.createStyledMenuItem("Devis");
         quotationsItem.addActionListener(e -> showQuotationManagement());
         documentsMenu.add(quotationsItem);
         
-        JMenuItem deliveryNotesItem = new JMenuItem("Bons de livraison");
+        JMenuItem deliveryNotesItem = UIUtils.createStyledMenuItem("Bons de livraison");
         deliveryNotesItem.addActionListener(e -> showDeliveryNoteManagement());
         documentsMenu.add(deliveryNotesItem);
         
-        JMenuItem invoicesItem = new JMenuItem("Factures");
+        JMenuItem invoicesItem = UIUtils.createStyledMenuItem("Factures");
         invoicesItem.addActionListener(e -> showInvoiceManagement());
         documentsMenu.add(invoicesItem);
         
-        JMenuItem purchaseOrdersItem = new JMenuItem("Bons de commande");
+        JMenuItem purchaseOrdersItem = UIUtils.createStyledMenuItem("Bons de commande");
         purchaseOrdersItem.addActionListener(e -> showPurchaseOrderManagement());
         documentsMenu.add(purchaseOrdersItem);
         
         // Statistics Menu
-        JMenu statisticsMenu = new JMenu("Statistiques");
+        JMenu statisticsMenu = UIUtils.createStyledMenu("Statistiques");
         
-        JMenuItem dashboardItem = new JMenuItem("Tableau de bord");
+        JMenuItem dashboardItem = UIUtils.createStyledMenuItem("Tableau de bord");
         dashboardItem.addActionListener(e -> showDashboard());
         statisticsMenu.add(dashboardItem);
         
-        JMenuItem reportsItem = new JMenuItem("Rapports");
-        reportsItem.addActionListener(e -> showReports());
-        statisticsMenu.add(reportsItem);
-        
         // Tools Menu
-        JMenu toolsMenu = new JMenu("Outils");
+        JMenu toolsMenu = UIUtils.createStyledMenu("Outils");
         
-        JMenuItem stockItem = new JMenuItem("Gestion de stock");
+        JMenuItem stockItem = UIUtils.createStyledMenuItem("Gestion de stock");
         stockItem.addActionListener(e -> showStockManagement());
         toolsMenu.add(stockItem);
         
-        JMenuItem bankingItem = new JMenuItem("Comptes bancaires");
+        JMenuItem bankingItem = UIUtils.createStyledMenuItem("Comptes bancaires");
         bankingItem.addActionListener(e -> showBankingManagement());
         toolsMenu.add(bankingItem);
         
-        JMenuItem exercicesItem = new JMenuItem("Exercices comptables");
+        JMenuItem exercicesItem = UIUtils.createStyledMenuItem("Exercices comptables");
         exercicesItem.addActionListener(e -> showExerciceManagement());
         toolsMenu.add(exercicesItem);
         
         // Configuration Menu
-        JMenu configMenu = new JMenu("Configuration");
+        JMenu configMenu = UIUtils.createStyledMenu("Configuration");
         
-        JMenuItem emailTestItem = new JMenuItem("Tester configuration e-mail");
+        JMenuItem emailTestItem = UIUtils.createStyledMenuItem("Tester configuration e-mail");
         emailTestItem.addActionListener(e -> showEmailTestDialog());
         configMenu.add(emailTestItem);
         
         // Help Menu
-        JMenu helpMenu = new JMenu("Aide");
+        JMenu helpMenu = UIUtils.createStyledMenu("Aide");
         
-        JMenuItem aboutItem = new JMenuItem("À propos");
+        JMenuItem aboutItem = UIUtils.createStyledMenuItem("À propos");
         aboutItem.addActionListener(e -> showAboutDialog());
         helpMenu.add(aboutItem);
         
@@ -329,12 +327,6 @@ public class MainFrame extends JFrame {
         updateStatus("Tableau de bord");
         StatisticsFrame frame = new StatisticsFrame();
         frame.setVisible(true);
-    }
-    
-    private void showReports() {
-        // TODO: Implement reports
-        updateStatus("Rapports");
-        UIUtils.showSuccessMessage(this, "Rapports à implémenter");
     }
     
     private void showStockManagement() {

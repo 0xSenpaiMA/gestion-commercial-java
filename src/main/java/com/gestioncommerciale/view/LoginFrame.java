@@ -33,8 +33,10 @@ public class LoginFrame extends JFrame {
     private void initializeComponents() {
         loginField = new JTextField(15);
         passwordField = new JPasswordField(15);
-        loginButton = UIUtils.createPrimaryButton("Se connecter");
-        exitButton = UIUtils.createDangerButton("Quitter");
+        
+        // Créer des boutons avec un style personnalisé et visible
+        loginButton = createLoginStyleButton("Se connecter", UIUtils.PRIMARY_COLOR);
+        exitButton = createLoginStyleButton("Quitter", UIUtils.ERROR_COLOR);
         
         // Set default values for testing
         loginField.setText("admin");
@@ -213,5 +215,54 @@ public class LoginFrame extends JFrame {
         };
         
         worker.execute();
+    }
+    
+    /**
+     * Crée un bouton stylisé spécifiquement pour le LoginFrame avec une meilleure visibilité
+     */
+    private JButton createLoginStyleButton(String text, Color backgroundColor) {
+        JButton button = new JButton(text);
+        
+        // Configuration de l'apparence pour assurer la visibilité
+        button.setBackground(backgroundColor);
+        button.setOpaque(true);
+        button.setBorderPainted(true);
+        
+        // Forcer le texte en noir pour une meilleure visibilité
+        button.setForeground(Color.BLACK);
+        
+        // Style et police
+        button.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        button.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(backgroundColor.darker(), 2),
+            BorderFactory.createEmptyBorder(10, 20, 10, 20)
+        ));
+        button.setFocusPainted(false);
+        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        // Effet de survol pour améliorer l'interaction
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent e) {
+                button.setBackground(backgroundColor.brighter());
+                button.setForeground(Color.BLACK); // Maintenir le texte noir même en survol
+                button.setBorder(BorderFactory.createCompoundBorder(
+                    BorderFactory.createLineBorder(backgroundColor, 3),
+                    BorderFactory.createEmptyBorder(9, 19, 9, 19)
+                ));
+            }
+            
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent e) {
+                button.setBackground(backgroundColor);
+                button.setForeground(Color.BLACK); // Maintenir le texte noir
+                button.setBorder(BorderFactory.createCompoundBorder(
+                    BorderFactory.createLineBorder(backgroundColor.darker(), 2),
+                    BorderFactory.createEmptyBorder(10, 20, 10, 20)
+                ));
+            }
+        });
+        
+        return button;
     }
 }
