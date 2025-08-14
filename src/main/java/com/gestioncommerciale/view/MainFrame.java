@@ -145,6 +145,10 @@ public class MainFrame extends JFrame {
         bankingItem.addActionListener(e -> showBankingManagement());
         toolsMenu.add(bankingItem);
         
+        JMenuItem exercicesItem = new JMenuItem("Exercices comptables");
+        exercicesItem.addActionListener(e -> showExerciceManagement());
+        toolsMenu.add(exercicesItem);
+        
         // Help Menu
         JMenu helpMenu = new JMenu("Aide");
         
@@ -266,7 +270,21 @@ public class MainFrame extends JFrame {
             contratFrame.setVisible(true);
             updateStatus("Gestion des contrats d'assistance");
         } catch (Exception e) {
-            UIUtils.showErrorMessage(this, "Erreur lors de l'ouverture de la gestion des contrats: " + e.getMessage());
+            JOptionPane.showMessageDialog(this, 
+                "Erreur lors de l'ouverture de la gestion des contrats: " + e.getMessage(),
+                "Erreur", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void showExerciceManagement() {
+        try {
+            ExerciceManagementFrame exerciceFrame = new ExerciceManagementFrame();
+            exerciceFrame.setVisible(true);
+            updateStatus("Gestion des exercices comptables");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, 
+                "Erreur lors de l'ouverture de la gestion des exercices: " + e.getMessage(),
+                "Erreur", JOptionPane.ERROR_MESSAGE);
         }
     }
     

@@ -21,6 +21,7 @@
         <class>com.gestioncommerciale.model.BonCommande</class>
         <class>com.gestioncommerciale.model.LigneCommande</class>
         <class>com.gestioncommerciale.model.ContratAssistance</class>
+        <class>com.gestioncommerciale.model.Exercice</class>
         
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
