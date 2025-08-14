@@ -344,9 +344,15 @@ public class MainFrame extends JFrame {
     }
     
     private void showBankingManagement() {
-        // TODO: Implement banking management
-        updateStatus("Gestion des comptes bancaires");
-        UIUtils.showSuccessMessage(this, "Gestion des comptes bancaires à implémenter");
+        updateStatus("Ouverture de la gestion des comptes bancaires...");
+        try {
+            BankingManagementFrame bankingFrame = new BankingManagementFrame();
+            bankingFrame.setVisible(true);
+            updateStatus("Gestion des comptes bancaires ouverte");
+        } catch (Exception e) {
+            updateStatus("Erreur lors de l'ouverture de la gestion bancaire");
+            UIUtils.showErrorMessage(this, "Erreur lors de l'ouverture de la gestion des comptes bancaires: " + e.getMessage());
+        }
     }
     
     private void showAboutDialog() {
