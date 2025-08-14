@@ -100,6 +100,10 @@ public class MainFrame extends JFrame {
         articlesItem.addActionListener(e -> showArticleManagement());
         managementMenu.add(articlesItem);
         
+        JMenuItem contratsItem = new JMenuItem("Contrats d'Assistance");
+        contratsItem.addActionListener(e -> showContratAssistanceManagement());
+        managementMenu.add(contratsItem);
+        
         // Documents Menu
         JMenu documentsMenu = new JMenu("Documents");
         
@@ -253,6 +257,16 @@ public class MainFrame extends JFrame {
             updateStatus("Gestion des articles");
         } catch (Exception e) {
             UIUtils.showErrorMessage(this, "Erreur lors de l'ouverture de la gestion des articles: " + e.getMessage());
+        }
+    }
+    
+    private void showContratAssistanceManagement() {
+        try {
+            ContratAssistanceManagementFrame contratFrame = new ContratAssistanceManagementFrame();
+            contratFrame.setVisible(true);
+            updateStatus("Gestion des contrats d'assistance");
+        } catch (Exception e) {
+            UIUtils.showErrorMessage(this, "Erreur lors de l'ouverture de la gestion des contrats: " + e.getMessage());
         }
     }
     

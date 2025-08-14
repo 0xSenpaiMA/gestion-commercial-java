@@ -77,6 +77,10 @@ public class Facture {
     @Column(name = "statut", nullable = false)
     private StatutFacture statut = StatutFacture.BROUILLON;
     
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "contrat_assistance_id")
+    private ContratAssistance contratAssistance;
+    
     @OneToMany(mappedBy = "facture", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<LigneFacture> lignes = new ArrayList<>();
     
@@ -234,6 +238,14 @@ public class Facture {
     
     public void setStatut(StatutFacture statut) {
         this.statut = statut;
+    }
+    
+    public ContratAssistance getContratAssistance() {
+        return contratAssistance;
+    }
+    
+    public void setContratAssistance(ContratAssistance contratAssistance) {
+        this.contratAssistance = contratAssistance;
     }
     
     public List<LigneFacture> getLignes() {
