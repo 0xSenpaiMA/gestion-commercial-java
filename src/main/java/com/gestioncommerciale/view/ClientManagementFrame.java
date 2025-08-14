@@ -26,6 +26,7 @@ import javax.swing.table.AbstractTableModel;
 
 import com.gestioncommerciale.model.Client;
 import com.gestioncommerciale.service.ClientService;
+import com.gestioncommerciale.service.EmailService;
 import com.gestioncommerciale.util.UIUtils;
 
 /**
@@ -35,10 +36,12 @@ public class ClientManagementFrame extends JFrame {
     private JTable clientTable;
     private ClientTableModel tableModel;
     private final ClientService clientService;
-    private JButton addButton, editButton, deleteButton, refreshButton;
+    private final EmailService emailService;
+    private JButton addButton, editButton, deleteButton, refreshButton, emailButton;
     
     public ClientManagementFrame() {
         this.clientService = new ClientService();
+        this.emailService = new EmailService();
         initializeComponents();
         setupLayout();
         setupEventHandlers();
@@ -68,6 +71,7 @@ public class ClientManagementFrame extends JFrame {
         editButton = UIUtils.createStyledButton("Modifier", UIUtils.PRIMARY_COLOR);
         deleteButton = UIUtils.createStyledButton("Supprimer", UIUtils.ERROR_COLOR);
         refreshButton = UIUtils.createStyledButton("Actualiser", UIUtils.SECONDARY_COLOR);
+        emailButton = UIUtils.createStyledButton("Envoyer situation par e-mail", UIUtils.WARNING_COLOR);
     }
     
     private void setupLayout() {
@@ -93,6 +97,7 @@ public class ClientManagementFrame extends JFrame {
         buttonPanel.add(addButton);
         buttonPanel.add(editButton);
         buttonPanel.add(deleteButton);
+        buttonPanel.add(emailButton);
         buttonPanel.add(refreshButton);
         add(buttonPanel, BorderLayout.SOUTH);
     }
@@ -102,17 +107,20 @@ public class ClientManagementFrame extends JFrame {
         editButton.addActionListener(e -> showEditClientDialog());
         deleteButton.addActionListener(e -> deleteSelectedClient());
         refreshButton.addActionListener(e -> loadClients());
+        emailButton.addActionListener(e -> envoyerSituationParEmail());
         
         // Enable/disable buttons based on selection
         clientTable.getSelectionModel().addListSelectionListener(e -> {
             boolean hasSelection = clientTable.getSelectedRow() != -1;
             editButton.setEnabled(hasSelection);
             deleteButton.setEnabled(hasSelection);
+            emailButton.setEnabled(hasSelection);
         });
         
-        // Initially disable edit/delete buttons
+        // Initially disable edit/delete/email buttons
         editButton.setEnabled(false);
         deleteButton.setEnabled(false);
+        emailButton.setEnabled(false);
     }
     
     private void configureWindow() {
@@ -190,6 +198,170 @@ public class ClientManagementFrame extends JFrame {
         }
     }
     
+    private void envoyerSituationParEmail() {
+        int selectedRow = clientTable.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this,
+                "Veuillez sélectionner un client pour envoyer sa situation par e-mail.",
+                "Aucune sélection", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        Client selectedClient = tableModel.getClientAt(selectedRow);
+        
+        // Dialogue de saisie de l'adresse e-mail
+        EmailInputDialog emailDialog = new EmailInputDialog(this, selectedClient);
+        emailDialog.setVisible(true);
+        
+        if (emailDialog.isConfirmed()) {
+            String emailDestinataire = emailDialog.getEmailAddress();
+            
+            // Afficher une boîte de dialogue de progression
+            JDialog progressDialog = new JDialog(this, "Envoi en cours...", true);
+            JLabel progressLabel = new JLabel("Envoi de l'e-mail en cours...");
+            progressLabel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            progressDialog.add(progressLabel);
+            progressDialog.pack();
+            progressDialog.setLocationRelativeTo(this);
+            
+            // Envoi dans un thread séparé pour ne pas bloquer l'interface
+            Thread emailThread = new Thread(() -> {
+                try {
+                    emailService.envoyerSituationClient(selectedClient, emailDestinataire);
+                    
+                    // Fermer le dialogue de progression et afficher le succès
+                    javax.swing.SwingUtilities.invokeLater(() -> {
+                        progressDialog.dispose();
+                        JOptionPane.showMessageDialog(this,
+                            "Situation du client envoyée avec succès à : " + emailDestinataire,
+                            "Envoi réussi", JOptionPane.INFORMATION_MESSAGE);
+                    });
+                    
+                } catch (Exception e) {
+                    // Fermer le dialogue de progression et afficher l'erreur
+                    javax.swing.SwingUtilities.invokeLater(() -> {
+                        progressDialog.dispose();
+                        JOptionPane.showMessageDialog(this,
+                            "Erreur lors de l'envoi de l'e-mail:\n" + e.getMessage(),
+                            "Erreur d'envoi", JOptionPane.ERROR_MESSAGE);
+                    });
+                }
+            });
+            
+            emailThread.start();
+            progressDialog.setVisible(true);
+        }
+    }
+    
+    // Dialogue pour la saisie de l'adresse e-mail
+    private static class EmailInputDialog extends JDialog {
+        private static final long serialVersionUID = 1L;
+        
+        private final Client client;
+        private JTextField emailField;
+        private boolean confirmed = false;
+        
+        public EmailInputDialog(JFrame parent, Client client) {
+            super(parent, "Envoyer situation par e-mail", true);
+            this.client = client;
+            initializeComponents();
+            setupLayout();
+            setupEventHandlers();
+            setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            pack();
+            setLocationRelativeTo(parent);
+        }
+        
+        private void initializeComponents() {
+            emailField = new JTextField(30);
+            // Pré-remplir avec l'e-mail du client s'il existe
+            if (client.getEmail() != null && !client.getEmail().trim().isEmpty()) {
+                emailField.setText(client.getEmail());
+            }
+        }
+        
+        private void setupLayout() {
+            setLayout(new BorderLayout());
+            
+            JPanel mainPanel = new JPanel(new GridBagLayout());
+            mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.insets = new Insets(5, 5, 5, 5);
+            gbc.anchor = GridBagConstraints.WEST;
+            
+            // Titre
+            gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2;
+            JLabel titleLabel = new JLabel("Envoyer la situation du client :");
+            titleLabel.setFont(titleLabel.getFont().deriveFont(java.awt.Font.BOLD, 14f));
+            mainPanel.add(titleLabel, gbc);
+            
+            // Nom du client
+            gbc.gridy = 1;
+            String clientName = client.getNom();
+            if (client.getPrenom() != null && !client.getPrenom().trim().isEmpty()) {
+                clientName += " " + client.getPrenom();
+            }
+            JLabel clientLabel = new JLabel(clientName);
+            clientLabel.setFont(clientLabel.getFont().deriveFont(java.awt.Font.BOLD));
+            mainPanel.add(clientLabel, gbc);
+            
+            // Adresse e-mail
+            gbc.gridy = 2; gbc.gridwidth = 1;
+            mainPanel.add(new JLabel("Adresse e-mail :"), gbc);
+            
+            gbc.gridx = 1;
+            mainPanel.add(emailField, gbc);
+            
+            add(mainPanel, BorderLayout.CENTER);
+            
+            // Boutons
+            JPanel buttonPanel = new JPanel(new FlowLayout());
+            JButton sendButton = new JButton("Envoyer");
+            JButton cancelButton = new JButton("Annuler");
+            
+            sendButton.addActionListener(e -> confirmer());
+            cancelButton.addActionListener(e -> dispose());
+            
+            buttonPanel.add(sendButton);
+            buttonPanel.add(cancelButton);
+            add(buttonPanel, BorderLayout.SOUTH);
+        }
+        
+        private void setupEventHandlers() {
+            emailField.addActionListener(e -> confirmer());
+        }
+        
+        private void confirmer() {
+            String email = emailField.getText().trim();
+            if (email.isEmpty()) {
+                JOptionPane.showMessageDialog(this,
+                    "Veuillez saisir une adresse e-mail.",
+                    "Champ requis", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            
+            // Validation basique de l'e-mail
+            if (!email.contains("@") || !email.contains(".")) {
+                JOptionPane.showMessageDialog(this,
+                    "Veuillez saisir une adresse e-mail valide.",
+                    "Format invalide", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+            
+            confirmed = true;
+            dispose();
+        }
+        
+        public boolean isConfirmed() {
+            return confirmed;
+        }
+        
+        public String getEmailAddress() {
+            return emailField.getText().trim();
+        }
+    }
+
     /**
      * Table model for clients
      */

@@ -149,6 +149,13 @@ public class MainFrame extends JFrame {
         exercicesItem.addActionListener(e -> showExerciceManagement());
         toolsMenu.add(exercicesItem);
         
+        // Configuration Menu
+        JMenu configMenu = new JMenu("Configuration");
+        
+        JMenuItem emailTestItem = new JMenuItem("Tester configuration e-mail");
+        emailTestItem.addActionListener(e -> showEmailTestDialog());
+        configMenu.add(emailTestItem);
+        
         // Help Menu
         JMenu helpMenu = new JMenu("Aide");
         
@@ -168,6 +175,7 @@ public class MainFrame extends JFrame {
         if (AuthService.hasPermission(User.UserRole.MANAGER)) {
             menuBar.add(statisticsMenu);
             menuBar.add(toolsMenu);
+            menuBar.add(configMenu);
         }
         
         menuBar.add(helpMenu);
@@ -352,6 +360,11 @@ public class MainFrame extends JFrame {
                 "</center></html>";
         
         JOptionPane.showMessageDialog(this, aboutText, "À propos", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void showEmailTestDialog() {
+        EmailTestDialog dialog = new EmailTestDialog(this);
+        dialog.setVisible(true);
     }
     
     private void logout() {
