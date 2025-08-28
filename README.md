@@ -265,7 +265,10 @@ This is a professional commercial management system designed for real-world use.
 
 Professional Commercial Management System - All rights reserved.
 
-## 📞 Support
+## Rapport du projet
+
+Vous pouvez consulter le rapport complet sur Overleaf en cliquant sur le lien suivant :  
+👉 [Rapport Overleaf](https://fr.overleaf.com/read/gsfbdzszyfrz#214e8d)
 
 For questions or support regarding this application, please refer to the documentation or contact the development team.
 
